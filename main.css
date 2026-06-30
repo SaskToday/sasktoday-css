@@ -929,7 +929,7 @@ hr#details-shares {
     }
 
     .widget-cards .card:after {
-        right: -15px;
+        right: -10px;
         position: absolute
     }
 
