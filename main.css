@@ -1,4 +1,12 @@
-    @media (min-width: 992px) {
+:root {
+    --green: #016a1b;
+}
+
+.title.mt-0.mb-1 {
+    color: var(--green) !important;
+}
+
+@media (min-width: 992px) {
         .mainnav .topnav > li > .navitem {
             padding: 0 7px;
         }
