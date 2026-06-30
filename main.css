@@ -605,17 +605,14 @@ p {
     border-top: 0
 }
 
-/* .card-footer,
+.card-footer,
 .card-header,
 .cards.cards-grid .card-body,
 .widget-cards .card .card-body {
     padding-left: 0;
     padding-right: 0
-} */
-
-.card-body {
-    padding: 7px 11px !important;
 }
+
 
 body {
     background-color: #f0f0f0
