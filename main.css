@@ -929,9 +929,14 @@ hr#details-shares {
     }
 
     .widget-cards .card:after {
-        right: -10px;
+        right: -15px;
         position: absolute
     }
+
+    .widget-cards .cards-2 .card::after {
+        right: -10px;
+    }
+
 
     .widget-area-col .section-cards .card:after {
         left: -16px;
