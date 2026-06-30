@@ -933,7 +933,7 @@ hr#details-shares {
         position: absolute
     }
 
-    .widget-cards .cards-2 .card::after {
+    .widget-cards .cards-2 .card:not(:last-child)::after {
         right: -10px;
     }
 
