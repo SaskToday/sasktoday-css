@@ -648,7 +648,11 @@ body {
 }
 
 .section-cards .card {
-    border: 0
+    border: 0;
+}
+
+.trending-now-section .card {
+    border: none;
 }
 
 .widget-area .section-cards>.card {
