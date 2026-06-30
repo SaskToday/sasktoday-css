@@ -613,6 +613,10 @@ p {
     padding-right: 0
 } */
 
+.card-body {
+    padding: 7px 11px !important;
+}
+
 body {
     background-color: #f0f0f0
 }
