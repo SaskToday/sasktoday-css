@@ -613,6 +613,9 @@ p {
     padding-right: 0
 }
 
+.trending-now-section .card-body {
+    padding: 8px 0;
+}
 
 body {
     background-color: #f0f0f0
