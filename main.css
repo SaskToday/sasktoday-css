@@ -815,6 +815,12 @@ body:has(.advs-area) h1.title {
     margin-bottom: 0
 }
 
+@media(max-width: 679px) {
+    .widget-cards .card {
+        margin-bottom: 15px;
+    }
+}
+
 .widget-cards {
     position: relative
 }
