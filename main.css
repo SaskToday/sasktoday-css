@@ -308,7 +308,7 @@
             scroll-snap-type: unset !important;
         }
     }
-    .tablist-item,
+    /* .tablist-item,
     .tablist-item-2,
     .tablist-item-3,
     .tablist-item-4,
@@ -316,7 +316,7 @@
     .tablist-item-6,
     .tablist-widget img {
         scroll-snap-align: unset !important;
-    }
+    } */
 
     @media (max-width: 579px) {
         .tablist.trending-now-section .swipe-panel {
@@ -744,9 +744,9 @@ aside .card-list>li .card-title {
     margin-bottom: 0 !important
 }
 
-.tablist-items {
+/* .tablist-items {
     gap: 30px
-}
+} */
 
 .cards.cards-grid .card {
     border-radius: 0;
