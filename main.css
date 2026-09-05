@@ -188,6 +188,8 @@
         .mainnav .topnav > li.group-navigation-list .subnav > li.list-heading .navitem {
             padding-left: 0px;
             line-height: 1.6;
+            font-weight: 700;
+            font-family: 'Source Sans 3';
         }
         .mainnav .topnav > li.group-navigation-list:hover .subnav {
             top: 99%;
@@ -274,6 +276,8 @@
         .mainnav .topnav > li.group-navigation-list .subnav > li.list-heading .navitem {
             padding-left: 0px;
             line-height: 1.6;
+            font-weight: 700;
+            font-family: 'Source Sans 3';
         }
     }
 
