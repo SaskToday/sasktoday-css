@@ -1247,6 +1247,12 @@ hr#details-shares {
 
 /* End Ad Unit Centering */
 
+/* In-article ad label: drop the Harvard underline only (keep "Advertisement" text).
+   Does not affect comments slots or video companion ads. */
+.widget-injected .slot span:before {
+    border-bottom: none;
+}
+
 /* Tariff Widgets */
 
 .tariff-widget .card {
