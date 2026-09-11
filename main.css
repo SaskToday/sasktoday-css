@@ -1202,8 +1202,52 @@ hr#details-shares {
 
 /*  New Template CSS End Here  */
 
+/* Ad Unit Centering */
 
+/* In-page units */
+.slot-widget {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
 
+/* Keep the existing desktop hide at min-width 1050px */
+@media (max-width: 1049px) {
+    .slot-leaderboard {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+    }
+}
+
+/* Sticky bars */
+.slot-fixed {
+    position: fixed;
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #fff;
+}
+
+.slot-footer.slot-fixed {
+    bottom: 0;
+}
+
+.slot-leaderboard .slot-fixed {
+    top: 0;
+}
+
+.slot-footer .slot-close {
+    display: none;
+}
+
+/* End Ad Unit Centering */
+
+/* Tariff Widgets */
 
 .tariff-widget .card {
     position: relative;
@@ -1222,7 +1266,8 @@ hr#details-shares {
  
 .tariff-widget .cards {
     --card-gap: 20px;
-     margin-top: 15px !important;
+    margin-top: 15px !important;
+    margin-bottom: 15px !important;
 }
  
 .tariff-widget .card:not(:first-child)::before {
@@ -1321,3 +1366,14 @@ hr#details-shares {
         display: none;
     }
 }
+
+.tariff-widget.widget-mostread {
+    border-top: 1px dashed #e0e0e0;
+    border-bottom: 1px dashed #e0e0e0;
+}
+
+.tariff-widget.widget-mostread .card .card-body > div:last-child {
+    color: #333 !important;
+}
+
+/* End Tariff Widgets */
