@@ -1262,39 +1262,52 @@ hr#details-shares {
     padding: 0;
 }
 
-/* Tariff stories are text-only. Top Stories lays a white title block over
-   the right side of a square-cornered photo. */
+/* Tariff stories are text-only. Top Stories is a square photo beside a
+   dark green panel, with the headline at the top and the time at the bottom. */
 .tariff-widget .card-img {
     display: none;
 }
 
 .top-stories-widget .cards > a.card {
     display: grid !important;
-    grid-template-columns: minmax(0, 1.15fr) minmax(7.5em, 1fr);
-    grid-template-rows: 1fr auto auto 1fr;
-    column-gap: 0;
-    row-gap: 0;
-    min-height: 132px;
+    grid-template-columns: 34% minmax(0, 1fr);
+    grid-template-rows: auto 1fr auto;
+    align-items: stretch;
+    overflow: hidden;
+    border-radius: 12px;
+    background-color: #002311;
+    min-height: 0;
     padding: 0;
     box-sizing: border-box;
+    color: #fff;
+    text-decoration: none;
+}
+
+.top-stories-widget .cards > a.card:hover,
+.top-stories-widget .cards > a.card:focus {
+    color: #fff;
+    text-decoration: none;
 }
 
 .top-stories-widget .cards > a.card > img.card-img {
-    position: absolute;
-    left: 0;
-    top: 0;
-    bottom: 0;
+    position: relative;
+    grid-column: 1;
+    grid-row: 1 / span 3;
+    left: auto;
+    top: auto;
+    bottom: auto;
     display: block;
-    width: 72% !important;
+    width: 100% !important;
     max-width: none !important;
     height: auto !important;
     max-height: none !important;
     min-height: 0 !important;
-    aspect-ratio: auto !important;
+    aspect-ratio: 1 / 1 !important;
+    align-self: stretch;
     object-fit: cover;
     object-position: center;
     border-radius: 0 !important;
-    z-index: 0;
+    z-index: auto;
 }
 
 .tariff-widget .card-body,
@@ -1307,27 +1320,29 @@ hr#details-shares {
 .top-stories-widget .cards > a.card > .card-body,
 .top-stories-widget .cards > a.card > .card-footer {
     position: relative;
-    z-index: 2;
+    z-index: auto;
     grid-column: 2;
     min-width: 0;
-    margin-left: -40px;
-    background-color: #fff;
-    padding-left: 12px;
-    padding-right: 8px;
+    margin-left: 0;
+    background-color: #002311;
+    padding-left: 22px;
+    padding-right: 22px;
 }
 
 .top-stories-widget .cards > a.card > .card-body {
-    grid-row: 2;
-    padding-top: 10px;
+    grid-row: 1;
+    align-self: start;
+    padding-top: 22px;
     padding-bottom: 0;
 }
 
 .top-stories-widget .cards > a.card > .card-footer {
     grid-row: 3;
+    align-self: end;
     width: auto;
     margin-top: 0;
-    padding-top: 2px;
-    padding-bottom: 10px;
+    padding-top: 0;
+    padding-bottom: 22px;
 }
  
 .tariff-widget .cards,
@@ -1337,8 +1352,7 @@ hr#details-shares {
     margin-bottom: 15px !important;
 }
  
-.tariff-widget .card:not(:first-child)::before,
-.top-stories-widget .card:not(:first-child)::before {
+.tariff-widget .card:not(:first-child)::before {
     content: "";
     position: absolute;
     top: 0;
@@ -1348,8 +1362,7 @@ hr#details-shares {
     background-color: #e0e0e0;
 }
  
-.tariff-widget > .title,
-.top-stories-widget > .title {
+.tariff-widget > .title {
     font-size: 0.75rem;
     font-weight: 700;
     text-transform: uppercase;
@@ -1359,39 +1372,66 @@ hr#details-shares {
     text-decoration: none;
     margin-bottom: 0 !important;
 }
+
+.top-stories-widget > .title,
+.top-stories-widget > .title a,
+.top-stories-widget > .title a:hover,
+.top-stories-widget > .title a:focus {
+    font-size: 26px;
+    font-weight: 800;
+    line-height: 1.4;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: #002311;
+    border-bottom: none;
+    text-decoration: none;
+    margin-bottom: 0 !important;
+}
  
 .tariff-widget .card-title.title {
     font-size: 1em;
 }
 
-.top-stories-widget .card-title.title {
-    font-size: 1.25em;
-    line-height: 1.25;
+.top-stories-widget .card-title.title,
+.top-stories-widget .cards > a.card:hover .card-title.title,
+.top-stories-widget .cards > a.card:focus .card-title.title {
+    font-size: clamp(1.25rem, 2vw, 34px);
+    font-weight: 800;
+    line-height: 1.1;
+    letter-spacing: -0.01em;
+    color: #fff;
 }
  
 /* ===== Time ago badges ===== */
-.tariff-widget .section-time.timeago,
-.top-stories-widget .section-time.timeago {
+.tariff-widget .section-time.timeago {
     color: darkred;
 }
 
 .top-stories-widget .section-time.timeago {
     display: block;
     margin: 0;
+    color: #f6dede;
+    font-size: 19px;
+    font-weight: 400;
 }
  
 .tariff-widget > .title,
 .top-stories-widget > .title {
     position: relative;
     display: inline-block;
-    padding-right: 20px;
     padding-bottom:0px;
+}
+
+.tariff-widget > .title {
+    padding-right: 20px;
+}
+
+.top-stories-widget > .title {
+    padding-right: 36px;
 }
  
 .tariff-widget > .title::before,
-.tariff-widget > .title::after,
-.top-stories-widget > .title::before,
-.top-stories-widget > .title::after {
+.tariff-widget > .title::after {
     content: "";
     position: absolute;
     right: 0;
@@ -1399,23 +1439,45 @@ hr#details-shares {
     border-radius: 50%;
     background-color: darkred;
 }
+
+.top-stories-widget > .title::before,
+.top-stories-widget > .title::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    border-radius: 50%;
+    transform: translateY(-50%);
+    animation: none;
+}
  
-.tariff-widget > .title::before,
-.top-stories-widget > .title::before {
+.tariff-widget > .title::before {
     width: 20px;
     height: 20px;
     right: 0;
     transform: translateY(-50%);
     animation: pulse-fade 1.25s cubic-bezier(0.215, 0.61, 0.355, 1) infinite;
 }
+
+.top-stories-widget > .title::before {
+    width: 26px;
+    height: 26px;
+    right: 0;
+    background-color: rgba(0, 35, 17, 0.18);
+}
  
-.tariff-widget > .title::after,
-.top-stories-widget > .title::after {
+.tariff-widget > .title::after {
     width: 8px;
     height: 8px;
     right: 6px;
     transform: translateY(-50%);
     animation: pulse-scale 1.25s cubic-bezier(0.455, 0.03, 0.515, 0.955) -0.4s infinite;
+}
+
+.top-stories-widget > .title::after {
+    width: 14px;
+    height: 14px;
+    right: 6px;
+    background-color: #002311;
 }
  
 @keyframes pulse-fade {
@@ -1468,8 +1530,7 @@ hr#details-shares {
     border-bottom: 1px dashed #e0e0e0;
 }
 
-.tariff-widget.widget-mostread .card .card-body > div:last-child,
-.top-stories-widget.widget-mostread .card .card-body > div:last-child {
+.tariff-widget.widget-mostread .card .card-body > div:last-child {
     color: #333 !important;
 }
 
