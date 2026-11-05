@@ -1262,35 +1262,24 @@ hr#details-shares {
     padding: 0;
 }
 
-/* Tariff stories are text-only. Top Stories keeps a small thumbnail. */
+/* Tariff stories are text-only. Top Stories shows the image above the text. */
 .tariff-widget .card-img {
     display: none;
 }
 
-/* Thumbnail left of the headline, time under the headline, at every width.
-   !important beats the theme card layout and the image's inline aspect-ratio. */
+/* Image on top, full card width, at every viewport width. */
 .top-stories-widget .cards > a.card {
-    display: grid !important;
-    grid-template-columns: 75px minmax(0, 1fr);
-    grid-template-areas:
-        "thumb title"
-        "thumb time";
-    column-gap: 10px;
-    row-gap: 2px;
-    align-items: start;
-    align-content: start;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: stretch;
 }
 
 .top-stories-widget .cards > a.card > img.card-img {
-    grid-area: thumb;
     display: block;
-    width: 75px !important;
-    max-width: 75px !important;
-    height: 50px !important;
-    max-height: 50px !important;
-    min-width: 0 !important;
-    min-height: 0 !important;
-    aspect-ratio: auto !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    height: auto !important;
+    max-height: none !important;
     object-fit: cover;
     object-position: center;
     border-radius: 4px;
@@ -1303,14 +1292,10 @@ hr#details-shares {
     padding: 0;
 }
 
-.top-stories-widget .cards > a.card > .card-body {
-    grid-area: title;
-    min-width: 0;
-}
-
+.top-stories-widget .cards > a.card > .card-body,
 .top-stories-widget .cards > a.card > .card-footer {
-    grid-area: time;
-    width: auto;
+    width: 100%;
+    min-width: 0;
 }
  
 .tariff-widget .cards,
