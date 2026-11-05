@@ -1414,12 +1414,18 @@ hr#details-shares {
     }
 }
  
-.tariff-widget .card-title.title,
-.top-stories-widget .card-title.title {
+.tariff-widget .card-title.title {
     display: -webkit-box;
     -webkit-line-clamp: 2;
     -webkit-box-orient: vertical;
     overflow: hidden;
+}
+
+.top-stories-widget .card-title.title {
+    display: block;
+    -webkit-line-clamp: unset;
+    line-clamp: unset;
+    overflow: visible;
 }
 @media (max-width: 767px) {
     .tariff-widget .carousel-nav-cards,
