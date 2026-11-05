@@ -1270,7 +1270,7 @@ hr#details-shares {
 
 .top-stories-widget .cards > a.card {
     display: grid !important;
-    grid-template-columns: 75px minmax(0, 1fr);
+    grid-template-columns: 100px minmax(0, 1fr);
     grid-template-areas:
         "thumb title"
         "thumb time";
@@ -1298,10 +1298,10 @@ hr#details-shares {
 .top-stories-widget .cards > a.card > img.card-img {
     grid-area: thumb;
     display: block;
-    width: 75px !important;
-    max-width: 75px !important;
-    height: 50px !important;
-    max-height: 50px !important;
+    width: 100px !important;
+    max-width: 100px !important;
+    height: 67px !important;
+    max-height: 67px !important;
     min-width: 0 !important;
     min-height: 0 !important;
     aspect-ratio: auto !important;
