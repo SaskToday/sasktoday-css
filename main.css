@@ -1262,36 +1262,46 @@ hr#details-shares {
     padding: 0;
 }
 
-/* Tariff stories are text-only. Top Stories keeps a small thumbnail on the left. */
+/* Tariff stories are text-only. Top Stories uses a large photo with the
+   headline panel cutting into its right side. */
 .tariff-widget .card-img {
     display: none;
 }
 
-/* Thumbnail left of the headline, time under the headline, at every width. */
 .top-stories-widget .cards > a.card {
-    display: grid !important;
-    grid-template-columns: 75px minmax(0, 1fr);
-    grid-template-areas:
-        "thumb title"
-        "thumb time";
-    column-gap: 10px;
-    row-gap: 2px;
-    align-items: start;
+    display: block !important;
+    min-height: 124px;
+    padding-left: 46%;
+    box-sizing: border-box;
+}
+
+.top-stories-widget .cards > a.card::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 46%;
+    background-color: #fff;
+    border-left: 1px solid #e0e0e0;
+    z-index: 0;
 }
 
 .top-stories-widget .cards > a.card > img.card-img {
-    grid-area: thumb;
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
     display: block;
-    width: 75px !important;
-    max-width: 75px !important;
-    height: 50px !important;
-    max-height: 50px !important;
-    min-width: 0 !important;
+    width: 64% !important;
+    max-width: none !important;
+    height: 100% !important;
+    max-height: none !important;
     min-height: 0 !important;
     aspect-ratio: auto !important;
     object-fit: cover;
     object-position: center;
-    border-radius: 4px;
+    border-radius: 4px 0 0 4px;
 }
 
 .tariff-widget .card-body,
@@ -1301,14 +1311,24 @@ hr#details-shares {
     padding: 0;
 }
 
-.top-stories-widget .cards > a.card > .card-body {
-    grid-area: title;
+.top-stories-widget .cards > a.card > .card-body,
+.top-stories-widget .cards > a.card > .card-footer {
+    position: relative;
+    z-index: 1;
     min-width: 0;
+    padding-left: 14px;
+}
+
+.top-stories-widget .cards > a.card > .card-body {
+    padding-top: 2px;
+    padding-bottom: 0;
 }
 
 .top-stories-widget .cards > a.card > .card-footer {
-    grid-area: time;
     width: auto;
+    margin-top: 0;
+    padding-top: 2px;
+    padding-bottom: 2px;
 }
  
 .tariff-widget .cards,
@@ -1341,15 +1361,24 @@ hr#details-shares {
     margin-bottom: 0 !important;
 }
  
-.tariff-widget .card-title.title,
-.top-stories-widget .card-title.title {
+.tariff-widget .card-title.title {
     font-size: 1em;
+}
+
+.top-stories-widget .card-title.title {
+    font-size: 1.25em;
+    line-height: 1.25;
 }
  
 /* ===== Time ago badges ===== */
 .tariff-widget .section-time.timeago,
 .top-stories-widget .section-time.timeago {
     color: darkred;
+}
+
+.top-stories-widget .section-time.timeago {
+    display: block;
+    margin: 0;
 }
  
 .tariff-widget > .title,
