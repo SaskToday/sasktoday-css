@@ -1262,55 +1262,38 @@ hr#details-shares {
     padding: 0;
 }
 
-/* Tariff stories are text-only. Top Stories uses a large photo with the
-   headline panel cutting into its right side. */
+/* Tariff stories are text-only. Top Stories lays a white title block over
+   the right side of a square-cornered photo. */
 .tariff-widget .card-img {
     display: none;
 }
 
 .top-stories-widget .cards > a.card {
     display: grid !important;
-    grid-template-columns: minmax(0, 1.35fr) minmax(7.5em, 1fr);
-    grid-template-areas:
-        "media title"
-        "media time";
+    grid-template-columns: minmax(0, 1.15fr) minmax(7.5em, 1fr);
+    grid-template-rows: 1fr auto auto 1fr;
     column-gap: 0;
     row-gap: 0;
-    align-content: start;
-    min-height: 120px;
+    min-height: 132px;
     padding: 0;
     box-sizing: border-box;
-}
-
-/* Full-height panel on the right. Positioned against the card, not the carousel,
-   so it cannot collapse the headline into a one-letter column. */
-.top-stories-widget .cards > a.card::after {
-    content: "";
-    position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 57%;
-    background-color: #fff;
-    border-left: 1px solid #e0e0e0;
-    z-index: 1;
 }
 
 .top-stories-widget .cards > a.card > img.card-img {
     position: absolute;
     left: 0;
     top: 0;
-    bottom: auto;
+    bottom: 0;
     display: block;
-    width: 66% !important;
+    width: 72% !important;
     max-width: none !important;
-    height: 120px !important;
-    max-height: 120px !important;
+    height: auto !important;
+    max-height: none !important;
     min-height: 0 !important;
     aspect-ratio: auto !important;
     object-fit: cover;
     object-position: center;
-    border-radius: 4px 0 0 4px;
+    border-radius: 0 !important;
     z-index: 0;
 }
 
@@ -1325,22 +1308,26 @@ hr#details-shares {
 .top-stories-widget .cards > a.card > .card-footer {
     position: relative;
     z-index: 2;
+    grid-column: 2;
     min-width: 0;
+    margin-left: -40px;
+    background-color: #fff;
     padding-left: 12px;
+    padding-right: 8px;
 }
 
 .top-stories-widget .cards > a.card > .card-body {
-    grid-area: title;
-    padding-top: 2px;
+    grid-row: 2;
+    padding-top: 10px;
     padding-bottom: 0;
 }
 
 .top-stories-widget .cards > a.card > .card-footer {
-    grid-area: time;
+    grid-row: 3;
     width: auto;
     margin-top: 0;
     padding-top: 2px;
-    padding-bottom: 2px;
+    padding-bottom: 10px;
 }
  
 .tariff-widget .cards,
