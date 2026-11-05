@@ -1262,25 +1262,33 @@ hr#details-shares {
     padding: 0;
 }
 
-/* Tariff stories are text-only. Top Stories overlays the headline on the image. */
+/* Tariff stories are text-only. Top Stories keeps a small thumbnail on the left. */
 .tariff-widget .card-img {
     display: none;
 }
 
-/* Full-width image, with the headline anchored to the bottom of the photo.
-   Overflow stays clipped so a long headline cannot paint the fade above the image. */
+/* Thumbnail left of the headline, time under the headline, at every width. */
 .top-stories-widget .cards > a.card {
-    display: block !important;
-    overflow: hidden;
-    container: top-story / inline-size;
+    display: grid !important;
+    grid-template-columns: 75px minmax(0, 1fr);
+    grid-template-areas:
+        "thumb title"
+        "thumb time";
+    column-gap: 10px;
+    row-gap: 2px;
+    align-items: start;
 }
 
 .top-stories-widget .cards > a.card > img.card-img {
+    grid-area: thumb;
     display: block;
-    width: 100% !important;
-    max-width: 100% !important;
-    height: auto !important;
-    max-height: none !important;
+    width: 75px !important;
+    max-width: 75px !important;
+    height: 50px !important;
+    max-height: 50px !important;
+    min-width: 0 !important;
+    min-height: 0 !important;
+    aspect-ratio: auto !important;
     object-fit: cover;
     object-position: center;
     border-radius: 4px;
@@ -1294,23 +1302,13 @@ hr#details-shares {
 }
 
 .top-stories-widget .cards > a.card > .card-body {
-    position: absolute;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    width: 100%;
+    grid-area: title;
     min-width: 0;
-    box-sizing: border-box;
-    margin: 0;
-    padding: 36px 12px 12px;
-    background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.75) 38%, #000 72%);
-    border-bottom-left-radius: 4px;
-    border-bottom-right-radius: 4px;
 }
 
-.top-stories-widget .cards > a.card > .card-footer,
-.top-stories-widget .section-time {
-    display: none;
+.top-stories-widget .cards > a.card > .card-footer {
+    grid-area: time;
+    width: auto;
 }
  
 .tariff-widget .cards,
@@ -1331,7 +1329,8 @@ hr#details-shares {
     background-color: #e0e0e0;
 }
  
-.tariff-widget > .title {
+.tariff-widget > .title,
+.top-stories-widget > .title {
     font-size: 0.75rem;
     font-weight: 700;
     text-transform: uppercase;
@@ -1342,7 +1341,8 @@ hr#details-shares {
     margin-bottom: 0 !important;
 }
  
-.tariff-widget .card-title.title {
+.tariff-widget .card-title.title,
+.top-stories-widget .card-title.title {
     font-size: 1em;
 }
  
@@ -1352,7 +1352,8 @@ hr#details-shares {
     color: darkred;
 }
  
-.tariff-widget > .title {
+.tariff-widget > .title,
+.top-stories-widget > .title {
     position: relative;
     display: inline-block;
     padding-right: 20px;
@@ -1360,7 +1361,9 @@ hr#details-shares {
 }
  
 .tariff-widget > .title::before,
-.tariff-widget > .title::after {
+.tariff-widget > .title::after,
+.top-stories-widget > .title::before,
+.top-stories-widget > .title::after {
     content: "";
     position: absolute;
     right: 0;
@@ -1369,7 +1372,8 @@ hr#details-shares {
     background-color: darkred;
 }
  
-.tariff-widget > .title::before {
+.tariff-widget > .title::before,
+.top-stories-widget > .title::before {
     width: 20px;
     height: 20px;
     right: 0;
@@ -1377,7 +1381,8 @@ hr#details-shares {
     animation: pulse-fade 1.25s cubic-bezier(0.215, 0.61, 0.355, 1) infinite;
 }
  
-.tariff-widget > .title::after {
+.tariff-widget > .title::after,
+.top-stories-widget > .title::after {
     width: 8px;
     height: 8px;
     right: 6px;
@@ -1414,27 +1419,12 @@ hr#details-shares {
     overflow: hidden;
 }
 
-.top-stories-widget .cards > a.card .card-title.title,
-.top-stories-widget .cards > a.card:hover .card-title.title,
-.top-stories-widget .cards > a.card:focus .card-title.title {
+.top-stories-widget .card-title.title {
     display: -webkit-box;
     -webkit-box-orient: vertical;
     -webkit-line-clamp: 3;
     line-clamp: 3;
     overflow: hidden;
-    color: #fff;
-}
-
-/* Narrow cards have a shorter photo, so keep the headline to two lines. */
-@container top-story (max-width: 200px) {
-    .top-stories-widget .cards > a.card .card-title.title {
-        -webkit-line-clamp: 2;
-        line-clamp: 2;
-    }
-
-    .top-stories-widget .cards > a.card > .card-body {
-        padding-top: 20px;
-    }
 }
 
 @media (max-width: 767px) {
