@@ -1411,6 +1411,12 @@ hr#details-shares {
     overflow: hidden;
 }
 
+.top-stories-widget .cards > a.card .card-title.title,
+.top-stories-widget .cards > a.card:hover .card-title.title,
+.top-stories-widget .cards > a.card:focus .card-title.title {
+    color: #fff;
+}
+
 @media (max-width: 767px) {
     .tariff-widget .carousel-nav-cards,
     .top-stories-widget .carousel-nav-cards {
