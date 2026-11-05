@@ -1269,39 +1269,49 @@ hr#details-shares {
 }
 
 .top-stories-widget .cards > a.card {
-    display: block !important;
-    min-height: 124px;
-    padding-left: 46%;
+    display: grid !important;
+    grid-template-columns: minmax(0, 1.35fr) minmax(7.5em, 1fr);
+    grid-template-areas:
+        "media title"
+        "media time";
+    column-gap: 0;
+    row-gap: 0;
+    align-content: start;
+    min-height: 120px;
+    padding: 0;
     box-sizing: border-box;
 }
 
+/* Full-height panel on the right. Positioned against the card, not the carousel,
+   so it cannot collapse the headline into a one-letter column. */
 .top-stories-widget .cards > a.card::after {
     content: "";
     position: absolute;
     top: 0;
     right: 0;
     bottom: 0;
-    left: 46%;
+    left: 57%;
     background-color: #fff;
     border-left: 1px solid #e0e0e0;
-    z-index: 0;
+    z-index: 1;
 }
 
 .top-stories-widget .cards > a.card > img.card-img {
     position: absolute;
     left: 0;
     top: 0;
-    bottom: 0;
+    bottom: auto;
     display: block;
-    width: 64% !important;
+    width: 66% !important;
     max-width: none !important;
-    height: 100% !important;
-    max-height: none !important;
+    height: 120px !important;
+    max-height: 120px !important;
     min-height: 0 !important;
     aspect-ratio: auto !important;
     object-fit: cover;
     object-position: center;
     border-radius: 4px 0 0 4px;
+    z-index: 0;
 }
 
 .tariff-widget .card-body,
@@ -1314,17 +1324,19 @@ hr#details-shares {
 .top-stories-widget .cards > a.card > .card-body,
 .top-stories-widget .cards > a.card > .card-footer {
     position: relative;
-    z-index: 1;
+    z-index: 2;
     min-width: 0;
-    padding-left: 14px;
+    padding-left: 12px;
 }
 
 .top-stories-widget .cards > a.card > .card-body {
+    grid-area: title;
     padding-top: 2px;
     padding-bottom: 0;
 }
 
 .top-stories-widget .cards > a.card > .card-footer {
+    grid-area: time;
     width: auto;
     margin-top: 0;
     padding-top: 2px;
