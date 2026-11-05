@@ -1328,8 +1328,7 @@ hr#details-shares {
     background-color: #e0e0e0;
 }
  
-.tariff-widget > .title,
-.top-stories-widget > .title {
+.tariff-widget > .title {
     font-size: 0.75rem;
     font-weight: 700;
     text-transform: uppercase;
@@ -1340,8 +1339,7 @@ hr#details-shares {
     margin-bottom: 0 !important;
 }
  
-.tariff-widget .card-title.title,
-.top-stories-widget .card-title.title {
+.tariff-widget .card-title.title {
     font-size: 1em;
 }
  
@@ -1351,8 +1349,7 @@ hr#details-shares {
     color: darkred;
 }
  
-.tariff-widget > .title,
-.top-stories-widget > .title {
+.tariff-widget > .title {
     position: relative;
     display: inline-block;
     padding-right: 20px;
@@ -1360,9 +1357,7 @@ hr#details-shares {
 }
  
 .tariff-widget > .title::before,
-.tariff-widget > .title::after,
-.top-stories-widget > .title::before,
-.top-stories-widget > .title::after {
+.tariff-widget > .title::after {
     content: "";
     position: absolute;
     right: 0;
@@ -1371,8 +1366,7 @@ hr#details-shares {
     background-color: darkred;
 }
  
-.tariff-widget > .title::before,
-.top-stories-widget > .title::before {
+.tariff-widget > .title::before {
     width: 20px;
     height: 20px;
     right: 0;
@@ -1380,8 +1374,7 @@ hr#details-shares {
     animation: pulse-fade 1.25s cubic-bezier(0.215, 0.61, 0.355, 1) infinite;
 }
  
-.tariff-widget > .title::after,
-.top-stories-widget > .title::after {
+.tariff-widget > .title::after {
     width: 8px;
     height: 8px;
     right: 6px;
@@ -1418,15 +1411,6 @@ hr#details-shares {
     overflow: hidden;
 }
 
-.top-stories-widget .card-title.title,
-.top-stories-widget a.card:hover .card-title.title,
-.top-stories-widget a.card:focus .card-title.title {
-    display: block;
-    -webkit-line-clamp: unset;
-    line-clamp: unset;
-    overflow: visible;
-    color: #fff;
-}
 @media (max-width: 767px) {
     .tariff-widget .carousel-nav-cards,
     .top-stories-widget .carousel-nav-cards {
