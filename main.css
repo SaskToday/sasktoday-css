@@ -1253,30 +1253,65 @@ hr#details-shares {
     border-bottom: none;
 }
 
-/* Tariff Widgets */
+/* Tariff and Top Stories widgets */
 
-.tariff-widget .card {
+.tariff-widget .card,
+.top-stories-widget .card {
     position: relative;
     border: none;
     padding: 0;
 }
- 
+
+/* Tariff stories are text-only. Top Stories keeps a small thumbnail. */
 .tariff-widget .card-img {
     display: none;
 }
- 
+
+.top-stories-widget .card {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+}
+
+.top-stories-widget .card-img,
+.top-stories-widget .card-img img,
+.top-stories-widget .card > img {
+    display: block;
+    flex: 0 0 auto;
+    width: 75px;
+    max-width: 75px;
+    height: 50px;
+    max-height: 50px;
+    object-fit: cover;
+    object-position: center;
+    border-radius: 4px;
+}
+
 .tariff-widget .card-body,
-.tariff-widget .card-footer {
+.tariff-widget .card-footer,
+.top-stories-widget .card-body,
+.top-stories-widget .card-footer {
     padding: 0;
 }
+
+.top-stories-widget .card-body {
+    flex: 1 1 auto;
+    min-width: 0;
+}
+
+.top-stories-widget .card-footer {
+    flex: 1 1 100%;
+}
  
-.tariff-widget .cards {
+.tariff-widget .cards,
+.top-stories-widget .cards {
     --card-gap: 20px;
     margin-top: 15px !important;
     margin-bottom: 15px !important;
 }
  
-.tariff-widget .card:not(:first-child)::before {
+.tariff-widget .card:not(:first-child)::before,
+.top-stories-widget .card:not(:first-child)::before {
     content: "";
     position: absolute;
     top: 0;
@@ -1286,7 +1321,8 @@ hr#details-shares {
     background-color: #e0e0e0;
 }
  
-.tariff-widget > .title {
+.tariff-widget > .title,
+.top-stories-widget > .title {
     font-size: 0.75rem;
     font-weight: 700;
     text-transform: uppercase;
@@ -1297,16 +1333,19 @@ hr#details-shares {
     margin-bottom: 0 !important;
 }
  
-.tariff-widget .card-title.title {
+.tariff-widget .card-title.title,
+.top-stories-widget .card-title.title {
     font-size: 1em;
 }
  
 /* ===== Time ago badges ===== */
-.tariff-widget .section-time.timeago {
+.tariff-widget .section-time.timeago,
+.top-stories-widget .section-time.timeago {
     color: darkred;
 }
  
-.tariff-widget > .title {
+.tariff-widget > .title,
+.top-stories-widget > .title {
     position: relative;
     display: inline-block;
     padding-right: 20px;
@@ -1314,7 +1353,9 @@ hr#details-shares {
 }
  
 .tariff-widget > .title::before,
-.tariff-widget > .title::after {
+.tariff-widget > .title::after,
+.top-stories-widget > .title::before,
+.top-stories-widget > .title::after {
     content: "";
     position: absolute;
     right: 0;
@@ -1323,7 +1364,8 @@ hr#details-shares {
     background-color: darkred;
 }
  
-.tariff-widget > .title::before {
+.tariff-widget > .title::before,
+.top-stories-widget > .title::before {
     width: 20px;
     height: 20px;
     right: 0;
@@ -1331,7 +1373,8 @@ hr#details-shares {
     animation: pulse-fade 1.25s cubic-bezier(0.215, 0.61, 0.355, 1) infinite;
 }
  
-.tariff-widget > .title::after {
+.tariff-widget > .title::after,
+.top-stories-widget > .title::after {
     width: 8px;
     height: 8px;
     right: 6px;
@@ -1361,25 +1404,29 @@ hr#details-shares {
     }
 }
  
-.tariff-widget .card-title.title {
+.tariff-widget .card-title.title,
+.top-stories-widget .card-title.title {
     display: -webkit-box;
     -webkit-line-clamp: 2;
     -webkit-box-orient: vertical;
     overflow: hidden;
 }
 @media (max-width: 767px) {
-    .tariff-widget .carousel-nav-cards {
+    .tariff-widget .carousel-nav-cards,
+    .top-stories-widget .carousel-nav-cards {
         display: none;
     }
 }
 
-.tariff-widget.widget-mostread {
+.tariff-widget.widget-mostread,
+.top-stories-widget.widget-mostread {
     border-top: 1px dashed #e0e0e0;
     border-bottom: 1px dashed #e0e0e0;
 }
 
-.tariff-widget.widget-mostread .card .card-body > div:last-child {
+.tariff-widget.widget-mostread .card .card-body > div:last-child,
+.top-stories-widget.widget-mostread .card .card-body > div:last-child {
     color: #333 !important;
 }
 
-/* End Tariff Widgets */
+/* End Tariff and Top Stories widgets */
