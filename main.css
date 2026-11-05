@@ -1267,21 +1267,30 @@ hr#details-shares {
     display: none;
 }
 
-.top-stories-widget .card {
-    display: flex;
-    align-items: flex-start;
-    gap: 10px;
+/* Thumbnail left of the headline, time under the headline, at every width.
+   !important beats the theme card layout and the image's inline aspect-ratio. */
+.top-stories-widget .cards > a.card {
+    display: grid !important;
+    grid-template-columns: 75px minmax(0, 1fr);
+    grid-template-areas:
+        "thumb title"
+        "thumb time";
+    column-gap: 10px;
+    row-gap: 2px;
+    align-items: start;
+    align-content: start;
 }
 
-.top-stories-widget .card-img,
-.top-stories-widget .card-img img,
-.top-stories-widget .card > img {
+.top-stories-widget .cards > a.card > img.card-img {
+    grid-area: thumb;
     display: block;
-    flex: 0 0 auto;
-    width: 75px;
-    max-width: 75px;
-    height: 50px;
-    max-height: 50px;
+    width: 75px !important;
+    max-width: 75px !important;
+    height: 50px !important;
+    max-height: 50px !important;
+    min-width: 0 !important;
+    min-height: 0 !important;
+    aspect-ratio: auto !important;
     object-fit: cover;
     object-position: center;
     border-radius: 4px;
@@ -1294,13 +1303,14 @@ hr#details-shares {
     padding: 0;
 }
 
-.top-stories-widget .card-body {
-    flex: 1 1 auto;
+.top-stories-widget .cards > a.card > .card-body {
+    grid-area: title;
     min-width: 0;
 }
 
-.top-stories-widget .card-footer {
-    flex: 1 1 100%;
+.top-stories-widget .cards > a.card > .card-footer {
+    grid-area: time;
+    width: auto;
 }
  
 .tariff-widget .cards,
