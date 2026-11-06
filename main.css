@@ -1263,7 +1263,7 @@ hr#details-shares {
 }
 
 /* Tariff stories are text-only. Top Stories keeps a small square-cornered
-   thumbnail on the left with the title and time stacked beside it. */
+   thumbnail on the left, the title beside it, and the time under the image. */
 .tariff-widget .card-img {
     display: none;
 }
@@ -1273,7 +1273,7 @@ hr#details-shares {
     grid-template-columns: 100px minmax(0, 1fr);
     grid-template-areas:
         "thumb title"
-        "thumb time";
+        "time title";
     column-gap: 10px;
     row-gap: 0;
     align-items: start;
@@ -1281,6 +1281,8 @@ hr#details-shares {
     background: none;
     background-color: transparent;
     min-height: 0;
+    margin-top: 0 !important;
+    margin-bottom: 0 !important;
     padding: 0;
     box-sizing: border-box;
     color: #222;
@@ -1327,6 +1329,13 @@ hr#details-shares {
 .top-stories-widget .cards > a.card > .card-footer {
     grid-area: time;
     width: auto;
+    margin: 0;
+    padding: 0;
+    line-height: 1.2;
+}
+
+.top-stories-widget .cards > a.card > .card-footer .section-time.timeago {
+    display: block;
     margin: 0;
     padding: 0;
 }
@@ -1442,8 +1451,8 @@ hr#details-shares {
 
 .top-stories-widget .card-title.title {
     display: -webkit-box;
-    -webkit-line-clamp: 3;
-    line-clamp: 3;
+    -webkit-line-clamp: 4;
+    line-clamp: 4;
     -webkit-box-orient: vertical;
     overflow: hidden;
 }
