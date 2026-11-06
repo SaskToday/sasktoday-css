@@ -675,6 +675,7 @@ h1.title {
 /* Section headings on content widgets and the article details block.
    Directory card titles (h2.card-title) stay on the base theme. */
 .widget > h2.title,
+.widget-area-col > h2.title,
 .details-related > h2.title,
 #details-widgets > h2.title,
 #details-widgets .share-mailing > h2.title {
