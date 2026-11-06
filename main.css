@@ -1270,10 +1270,10 @@ hr#details-shares {
 
 .top-stories-widget .cards > a.card {
     display: grid !important;
-    grid-template-columns: 100px minmax(0, 1fr);
+    grid-template-columns: 70px minmax(0, 1fr);
     grid-template-areas:
         "thumb title"
-        "time title";
+        "thumb time";
     column-gap: 10px;
     row-gap: 0;
     align-items: start;
@@ -1300,10 +1300,10 @@ hr#details-shares {
 .top-stories-widget .cards > a.card > img.card-img {
     grid-area: thumb;
     display: block;
-    width: 100px !important;
-    max-width: 100px !important;
-    height: 67px !important;
-    max-height: 67px !important;
+    width: 70px !important;
+    max-width: 70px !important;
+    height: 47px !important;
+    max-height: 47px !important;
     min-width: 0 !important;
     min-height: 0 !important;
     aspect-ratio: auto !important;
@@ -1407,11 +1407,6 @@ hr#details-shares {
     top: 50%;
     border-radius: 50%;
     background-color: darkred;
-}
-
-.top-stories-widget > .title a::before,
-.top-stories-widget > .title a::after {
-    background-color: #000;
 }
 
 .tariff-widget > .title a::before,
