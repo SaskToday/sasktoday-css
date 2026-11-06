@@ -1273,7 +1273,7 @@ hr#details-shares {
     grid-template-columns: 70px minmax(0, 1fr);
     grid-template-areas:
         "thumb title"
-        "thumb time";
+        ". time";
     column-gap: 10px;
     row-gap: 0;
     align-items: start;
@@ -1326,11 +1326,16 @@ hr#details-shares {
     padding: 0;
 }
 
+.top-stories-widget .cards > a.card > .card-body .card-title.title {
+    margin: 0;
+    padding: 0;
+}
+
 .top-stories-widget .cards > a.card > .card-footer {
     grid-area: time;
     width: auto;
     margin: 0;
-    padding: 0;
+    padding: 2px 0 0;
     line-height: 1.2;
 }
 
