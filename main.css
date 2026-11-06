@@ -672,7 +672,13 @@ h1.title {
     padding-bottom: 10px
 }
 
-h2.title {
+/* Section headings on content widgets and the article details block.
+   Directory card titles (h2.card-title) stay on the base theme. */
+.widget > h2.title,
+.widget-area-col > h2.title,
+.details-related > h2.title,
+#details-widgets > h2.title,
+#details-widgets .share-mailing > h2.title {
     font-size: 1.4em;
     font-weight: 700;
     border-bottom: 1pt solid #7d7d7d;
