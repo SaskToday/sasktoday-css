@@ -663,6 +663,29 @@ body {
     border: none;
 }
 
+.trending-now-section .section-title + div {
+    color: #000;
+    font-weight: 700;
+    line-height: 1.2;
+}
+
+.trending-now-section .section-title {
+    font-weight: 700;
+    background-image: radial-gradient(circle, rgba(0, 69, 17, 1) 0%, rgba(0, 36, 9, 1) 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    -webkit-text-fill-color: transparent;
+}
+
+.trending-now-section .section-title .ic {
+    background: none;
+    -webkit-background-clip: border-box;
+    background-clip: border-box;
+    color: #016a1b;
+    -webkit-text-fill-color: #016a1b;
+}
+
 .widget-area .section-cards>.card {
     margin-bottom: 15px
 }
