@@ -674,7 +674,7 @@ body {
     bottom: 0;
     left: calc(var(--card-gap, 20px) / -2 - 0.5px);
     width: 1px;
-    background-color: #e0e0e0;
+    background-color: #e8e8e8;
 }
 
 .trending-now-section .section-title + div {
@@ -1406,6 +1406,10 @@ hr#details-shares {
     left: -10.5px;
     width: 1px;
     background-color: #e0e0e0;
+}
+
+.tariff-widget .card:not(:first-child)::before {
+    background-color: #e8e8e8;
 }
  
 /* Match the site widget title treatment (uppercase + top rule).
