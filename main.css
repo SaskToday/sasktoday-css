@@ -1218,7 +1218,7 @@ hr#details-shares {
 }
 
 .gam.widget-inject {
-    padding: 15px 0
+    padding: 15px 0 !important
 }
 
 .widget.widget-dfp.gam {
