@@ -1048,6 +1048,10 @@ hr#details-shares {
     color: #000
 }
 
+.media-body h2.media-heading {
+    color: #000
+}
+
 .mt-1 {
     font-size: 12px !important
 }
