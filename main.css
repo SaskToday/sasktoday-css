@@ -675,12 +675,13 @@ body {
     left: calc(var(--card-gap, 20px) / -2 - 0.5px);
     width: 1px;
     background-color: #e8e8e8;
+    pointer-events: none;
 }
 
 .trending-now-section .section-title + div {
     color: #000;
     font-weight: 700;
-    line-height: 1.2
+    line-height: 1.1
 }
 
 .trending-now-section .section-title {
@@ -1405,10 +1406,6 @@ hr#details-shares {
     bottom: 0;
     left: -10.5px;
     width: 1px;
-    background-color: #e0e0e0;
-}
-
-.tariff-widget .card:not(:first-child)::before {
     background-color: #e8e8e8;
 }
  
