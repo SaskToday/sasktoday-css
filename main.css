@@ -1221,6 +1221,10 @@ hr#details-shares {
     padding: 15px 0
 }
 
+.widget.widget-dfp.gam {
+    background: linear-gradient(135deg, #fafafa 0%, #eeeeee 100%)
+}
+
 .slot-footer.slot-show {
     padding: 10px 0
 }
