@@ -1296,6 +1296,17 @@ hr#details-shares {
 
 /* End Ad Unit Centering */
 
+/* Advertising label above video companion ads, comment slots, and in-article ads. */
+.widget-videoad .companionad:before,
+.slot-comments span:before,
+.widget-injected .slot span:before {
+    display: block;
+    text-align: center;
+    text-transform: uppercase;
+    font-size: 70%;
+    color: #717171;
+}
+
 /* In-article ad label: drop the Harvard underline only (keep "Advertisement" text).
    Does not affect comments slots or video companion ads. */
 .widget-injected .slot span:before {
