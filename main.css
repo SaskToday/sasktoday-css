@@ -663,17 +663,6 @@ body {
     border: none;
 }
 
-.trending-now-section .section-title + div {
-    color: #000;
-    font-weight: 700;
-    line-height: 1.2;
-}
-
-.trending-now-section .section-title {
-    font-weight: 700;
-    color: #004511;
-}
-
 .widget-area .section-cards>.card {
     margin-bottom: 15px
 }
