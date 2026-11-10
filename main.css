@@ -885,6 +885,10 @@ a.card.card-block:last-child {
     padding: 0
 }
 
+.poll legend {
+    color: #000
+}
+
 .card:has(.poll) {
     border: 0
 }
