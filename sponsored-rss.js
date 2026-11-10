@@ -14,8 +14,11 @@
  *   /saskatoon-today → Saskatoon Zapier feed
  *
  * Injects into .widget-area-col after the first child <div>.
- * Root class is st-sponsored-rss only (never "widget") so Village CMS
- * does not treat this as an editable sidebar widget.
+ *
+ * Markup matches a standard sidebar thumbs widget (title, card-snippet rows,
+ * "More" footer) so it inherits the site styles. It uses the widget class for
+ * that styling, but not data-widget or the Move/Edit/Delete buttons, so the
+ * CMS does not treat it as an editable sidebar widget.
  *
  * If the browser blocks the Zapier feed (CORS), set CONFIG.corsProxyPrefix to:
  *   'https://api.allorigins.win/raw?url='
@@ -30,8 +33,8 @@
     cacheTtlMs: 5 * 60 * 1000,
     injectSelector: '.widget-area-col',
     rootId: 'st-sponsored-rss',
-    label: 'Sponsored content',
-    moreLabel: 'See more',
+    label: 'Sponsored Content',
+    moreLabel: 'More Sponsored Content >',
     cacheKeyPrefix: 'st-sponsored-rss-zapier:v5:',
 
     cities: [
@@ -297,23 +300,6 @@
       });
   }
 
-  function formatDate(pubDate) {
-    if (!pubDate) return '';
-    var d = new Date(pubDate);
-    if (isNaN(d.getTime())) return '';
-    try {
-      return d.toLocaleString('en-CA', {
-        month: 'short',
-        day: 'numeric',
-        year: 'numeric',
-        hour: 'numeric',
-        minute: '2-digit'
-      });
-    } catch (e) {
-      return d.toDateString();
-    }
-  }
-
   function escapeHtml(str) {
     return String(str)
       .replace(/&/g, '&amp;')
@@ -323,164 +309,55 @@
       .replace(/'/g, '&#39;');
   }
 
-  function ensureStyles() {
-    if (document.getElementById('st-sponsored-rss-styles')) return;
-
-    var style = document.createElement('style');
-    style.id = 'st-sponsored-rss-styles';
-    style.type = 'text/css';
-    style.textContent = [
-      '#' + CONFIG.rootId + ' {',
-      '  --st-sponsored-green: #016a1b;',
-      '  --st-sponsored-ink: #1a1a1a;',
-      '  --st-sponsored-muted: #5c5c5c;',
-      '  --st-sponsored-line: #e4e4e4;',
-      '  margin: 0 0 1.25rem;',
-      '  padding: 0;',
-      '}',
-      '#' + CONFIG.rootId + ' .st-sponsored-rss__shell {',
-      '  border: 1px solid var(--st-sponsored-line);',
-      '  background: #fff;',
-      '}',
-      '#' + CONFIG.rootId + ' .st-sponsored-rss__head {',
-      '  display: flex;',
-      '  align-items: center;',
-      '  gap: 8px;',
-      '  padding: 10px 12px 8px;',
-      '  border-bottom: 1px solid var(--st-sponsored-line);',
-      '}',
-      '#' + CONFIG.rootId + ' .st-sponsored-rss__pill {',
-      '  display: inline-block;',
-      '  padding: 3px 9px;',
-      '  border-radius: 999px;',
-      '  background: rgba(1, 106, 27, 0.1);',
-      '  border: 1px solid rgba(1, 106, 27, 0.28);',
-      '  color: var(--st-sponsored-green);',
-      '  font-size: 11px;',
-      '  font-weight: 700;',
-      '  letter-spacing: 0.04em;',
-      '  text-transform: uppercase;',
-      '  line-height: 1.3;',
-      '}',
-      '#' + CONFIG.rootId + ' .st-sponsored-rss__list {',
-      '  margin: 0;',
-      '  padding: 0;',
-      '}',
-      '#' + CONFIG.rootId + ' .st-sponsored-rss__item {',
-      '  display: block;',
-      '  padding: 12px;',
-      '  text-decoration: none !important;',
-      '  color: inherit;',
-      '  border-bottom: 1px solid var(--st-sponsored-line);',
-      '}',
-      '#' + CONFIG.rootId + ' .st-sponsored-rss__item:last-child {',
-      '  border-bottom: 0;',
-      '}',
-      '#' + CONFIG.rootId + ' .st-sponsored-rss__item:hover .st-sponsored-rss__title {',
-      '  color: var(--st-sponsored-green);',
-      '}',
-      '#' + CONFIG.rootId + ' .st-sponsored-rss__row {',
-      '  display: flex;',
-      '  gap: 10px;',
-      '  align-items: flex-start;',
-      '}',
-      '#' + CONFIG.rootId + ' .st-sponsored-rss__thumb {',
-      '  flex: 0 0 84px;',
-      '  width: 84px;',
-      '  height: 56px;',
-      '  object-fit: cover;',
-      '  display: block;',
-      '  background: #f2f2f2;',
-      '}',
-      '#' + CONFIG.rootId + ' .st-sponsored-rss__body {',
-      '  min-width: 0;',
-      '  flex: 1;',
-      '}',
-      '#' + CONFIG.rootId + ' .st-sponsored-rss__title {',
-      '  margin: 0 0 6px;',
-      '  font-size: 16px;',
-      '  line-height: 1.25;',
-      '  font-weight: 700;',
-      '  color: var(--st-sponsored-ink);',
-      '}',
-      '#' + CONFIG.rootId + ' .st-sponsored-rss__excerpt {',
-      '  margin: 0 0 8px;',
-      '  font-size: 13px;',
-      '  line-height: 1.4;',
-      '  color: var(--st-sponsored-muted);',
-      '  display: -webkit-box;',
-      '  -webkit-line-clamp: 3;',
-      '  -webkit-box-orient: vertical;',
-      '  overflow: hidden;',
-      '}',
-      '#' + CONFIG.rootId + ' .st-sponsored-rss__meta {',
-      '  display: flex;',
-      '  flex-wrap: wrap;',
-      '  align-items: baseline;',
-      '  gap: 8px;',
-      '  font-size: 12px;',
-      '}',
-      '#' + CONFIG.rootId + ' .st-sponsored-rss__time {',
-      '  color: var(--st-sponsored-muted);',
-      '}',
-      '#' + CONFIG.rootId + ' .st-sponsored-rss__more {',
-      '  display: block;',
-      '  padding: 10px 12px;',
-      '  border-top: 1px solid var(--st-sponsored-line);',
-      '  font-size: 13px;',
-      '  font-weight: 700;',
-      '  text-decoration: none !important;',
-      '  color: var(--st-sponsored-green);',
-      '}',
-      '#' + CONFIG.rootId + ' .st-sponsored-rss__more:hover {',
-      '  text-decoration: underline !important;',
-      '}'
-    ].join('\n');
-    document.head.appendChild(style);
+  function thumbUrl(url) {
+    if (!url) return '';
+    var base = String(url).split(';')[0];
+    if (base.indexOf('vmcdn.ca') === -1) return url;
+    return base + ';w=300;h=200;mode=crop';
   }
 
   function renderItem(item) {
-    var dateLabel = formatDate(item.pubDate);
-    var thumb = item.image
-      ? '<img class="st-sponsored-rss__thumb" src="' + escapeHtml(item.image) + '" alt="" loading="lazy" width="84" height="56">'
+    var id = storyIdFromUrl(item.link);
+    var image = thumbUrl(item.image);
+    var idAttr = id ? ' data-r="0" data-id="' + escapeHtml(id) + '"' : '';
+    var thumb = image
+      ? '<div class="card-snippet-left"><img alt="' + escapeHtml(item.title) + '" class="lazyimg lazy-loaded" data-src="' + escapeHtml(image) + '" height="80" src="' + escapeHtml(image) + '" style="aspect-ratio:120/80" width="120"></div>'
       : '';
 
     return [
-      '<a class="st-sponsored-rss__item media media-bordered" href="' + escapeHtml(item.link) + '">',
-      '  <div class="st-sponsored-rss__row">',
+      '<li>',
+      '<a href="' + escapeHtml(item.link) + '" class="' + (image ? 'card-snippet' : 'ib mt-1 mb-1') + '"' + idAttr + '>',
       thumb,
-      '    <div class="st-sponsored-rss__body media-body">',
-      '      <h3 class="st-sponsored-rss__title media-heading mt-0 mb-1">' + escapeHtml(item.title) + '</h3>',
+      image ? '<div class="card-snippet-body">' : '',
+      '<div class="card-title">' + escapeHtml(item.title) + '</div>',
       item.excerpt
-        ? '      <div class="st-sponsored-rss__excerpt media-intro">' + escapeHtml(item.excerpt) + '</div>'
+        ? '<div class="clamp clamp-2 card-text mt-1 mb-1">' + escapeHtml(item.excerpt) + '</div>'
         : '',
-      '      <div class="st-sponsored-rss__meta media-links">',
-      dateLabel ? '        <time datetime="' + escapeHtml(item.pubDate) + '" class="st-sponsored-rss__time">' + escapeHtml(dateLabel) + '</time>' : '',
-      '        <span class="theme-colour">Read more &gt;</span>',
-      '      </div>',
-      '    </div>',
-      '  </div>',
-      '</a>'
-    ].join('\n');
+      image ? '</div>' : '',
+      '</a>',
+      '</li>'
+    ].join('');
   }
 
   function buildRoot(city, items) {
     var root = document.createElement('div');
     root.id = CONFIG.rootId;
-    root.className = 'st-sponsored-rss';
+    // widget is for the shared title, spacing, and thumbnail styles.
+    // data-widget is omitted so Village does not add Move/Edit/Delete.
+    root.className = 'section widget widget-canfeature widget-thumbs theme-blue st-sponsored-rss';
     root.setAttribute('data-st-sponsored-rss', '1');
     root.setAttribute('data-st-city', city.pathIncludes);
     root.innerHTML = [
-      '<div class="st-sponsored-rss__shell">',
-      '  <div class="st-sponsored-rss__head">',
-      '    <span class="st-sponsored-rss__pill">' + escapeHtml(CONFIG.label) + '</span>',
-      '  </div>',
-      '  <div class="st-sponsored-rss__list">',
+      '<h2 class="title mt-0 mb-1">' + escapeHtml(CONFIG.label) + '</h2>',
+      '<div class="section-cards">',
+      '<div class="card">',
+      '<ul class="card-list nav">',
       items.map(renderItem).join(''),
-      '  </div>',
-      '  <a class="st-sponsored-rss__more theme-colour" href="' + escapeHtml(city.morePath) + '">' + escapeHtml(CONFIG.moreLabel) + ' &gt;</a>',
+      '</ul>',
+      '<div class="card-footer card-text"><a class="theme-colour" href="' + escapeHtml(city.morePath) + '">' + escapeHtml(CONFIG.moreLabel) + '</a></div>',
+      '</div>',
       '</div>'
-    ].join('\n');
+    ].join('');
     return root;
   }
 
@@ -506,7 +383,6 @@
     var target = findInjectTarget();
     if (!target) return;
 
-    ensureStyles();
     var root = buildRoot(city, items);
 
     if (target.after.nextSibling) {
