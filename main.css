@@ -857,6 +857,11 @@ a.card.card-block:last-child {
     .widget-cards .card {
         margin-bottom: 15px;
     }
+
+    /* Last card's margin collapses out of .cards and stacks on the next widget. */
+    .widget-cards .cards > .card:last-child {
+        margin-bottom: 0;
+    }
 }
 
 .widget-cards {
