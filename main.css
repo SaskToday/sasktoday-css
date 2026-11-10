@@ -1301,15 +1301,24 @@ hr#details-shares {
 
 /* End Ad Unit Centering */
 
-/* Advertising label above video companion ads, comment slots, and in-article ads. */
+/* Advertising label above video companion ads, comment slots, in-article ads, and DFP slots. */
 .widget-videoad .companionad:before,
 .slot-comments span:before,
-.widget-injected .slot span:before {
+.widget-injected .slot span:before,
+.widget.widget-dfp.gam > .slot > span:before {
     display: block;
     text-align: center;
     text-transform: uppercase;
     font-size: 60%;
     color: #717171;
+}
+
+/* DFP widgets are not .widget-injected, so the CMS rule never inserts this label. */
+.widget.widget-dfp.gam > .slot > span:before {
+    content: 'Advertisement';
+    padding-bottom: 2px;
+    border-bottom: none;
+    margin-left: 0;
 }
 
 /* In-article ad label: drop the Harvard underline only (keep "Advertisement" text).
