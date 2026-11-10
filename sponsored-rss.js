@@ -17,7 +17,8 @@
  * matches. Skip any path that includes sponsored-content so the widget is
  * not injected on the sponsored article itself.
  *
- * Injects into .widget-area-col after the first child <div>.
+ * Injects into the first <div class="sponsored-inject">. Pages without that
+ * placeholder are left alone.
  *
  * The inner markup matches a sidebar thumbs widget so the card styles apply.
  * The root is not a .widget and its links have no data-id. Village's editor
@@ -36,7 +37,7 @@
 
     maxItems: 3,
     cacheTtlMs: 5 * 60 * 1000,
-    injectSelector: '.widget-area-col',
+    injectSelector: '.sponsored-inject',
     rootId: 'st-sponsored-rss',
     label: 'Beyond the Headlines',
     pill: 'Sponsored',
@@ -408,18 +409,7 @@
   }
 
   function findInjectTarget() {
-    var col = document.querySelector(CONFIG.injectSelector);
-    if (!col) return null;
-    var firstDiv = null;
-    var i;
-    for (i = 0; i < col.children.length; i++) {
-      if (col.children[i].tagName === 'DIV') {
-        firstDiv = col.children[i];
-        break;
-      }
-    }
-    if (!firstDiv) return null;
-    return { col: col, after: firstDiv };
+    return document.querySelector(CONFIG.injectSelector);
   }
 
   function inject(city, items) {
@@ -430,13 +420,7 @@
     if (!target) return;
 
     ensureStyles();
-    var root = buildRoot(city, items);
-
-    if (target.after.nextSibling) {
-      target.col.insertBefore(root, target.after.nextSibling);
-    } else {
-      target.col.appendChild(root);
-    }
+    target.appendChild(buildRoot(city, items));
   }
 
   function run() {
