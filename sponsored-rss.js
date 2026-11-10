@@ -15,10 +15,10 @@
  *
  * Injects into .widget-area-col after the first child <div>.
  *
- * Markup matches a standard sidebar thumbs widget (title, card-snippet rows,
- * "More" footer) so it inherits the site styles. It uses the widget class for
- * that styling, but not data-widget or the Move/Edit/Delete buttons, so the
- * CMS does not treat it as an editable sidebar widget.
+ * Markup matches a standard sidebar thumbs widget so it inherits the site
+ * styles. Each story has a Sponsored pill above its title. The root uses the
+ * widget class for that styling, but not data-widget or the Move/Edit/Delete
+ * buttons, so the CMS does not treat it as an editable sidebar widget.
  *
  * If the browser blocks the Zapier feed (CORS), set CONFIG.corsProxyPrefix to:
  *   'https://api.allorigins.win/raw?url='
@@ -34,8 +34,7 @@
     injectSelector: '.widget-area-col',
     rootId: 'st-sponsored-rss',
     label: 'Beyond the Headlines',
-    intro: 'Sponsored articles from our partners',
-    moreLabel: 'More Sponsored Content >',
+    pill: 'Sponsored',
     cacheKeyPrefix: 'st-sponsored-rss-zapier:v5:',
 
     cities: [
@@ -317,6 +316,33 @@
     return base + ';w=300;h=200;mode=crop';
   }
 
+  function ensureStyles() {
+    if (document.getElementById('st-sponsored-rss-styles')) return;
+    var style = document.createElement('style');
+    style.id = 'st-sponsored-rss-styles';
+    style.textContent = [
+      '#st-sponsored-rss .st-sponsored-pill {',
+      '  display: inline-block;',
+      '  margin: 0 0 4px;',
+      '  padding: 2px 8px;',
+      '  border-radius: 999px;',
+      '  background: #016a1a;',
+      '  color: #fff;',
+      '  font-size: 11px;',
+      '  font-weight: 700;',
+      '  line-height: 1.4;',
+      '  text-decoration: none;',
+      '}',
+      '#st-sponsored-rss a:hover .st-sponsored-pill,',
+      '#st-sponsored-rss a:focus .st-sponsored-pill {',
+      '  background: #016a1a;',
+      '  color: #fff;',
+      '  text-decoration: none;',
+      '}'
+    ].join('\n');
+    document.head.appendChild(style);
+  }
+
   function renderItem(item) {
     var id = storyIdFromUrl(item.link);
     var image = thumbUrl(item.image);
@@ -330,6 +356,7 @@
       '<a href="' + escapeHtml(item.link) + '" class="' + (image ? 'card-snippet' : 'ib mt-1 mb-1') + '"' + idAttr + '>',
       thumb,
       image ? '<div class="card-snippet-body">' : '',
+      '<span class="st-sponsored-pill">' + escapeHtml(CONFIG.pill) + '</span>',
       '<div class="card-title">' + escapeHtml(item.title) + '</div>',
       item.excerpt
         ? '<div class="clamp clamp-2 card-text mt-1 mb-1">' + escapeHtml(item.excerpt) + '</div>'
@@ -350,13 +377,11 @@
     root.setAttribute('data-st-city', city.pathIncludes);
     root.innerHTML = [
       '<h2 class="title mt-0 mb-1">' + escapeHtml(CONFIG.label) + '</h2>',
-      '<p class="mt-0 mb-1 card-text">' + escapeHtml(CONFIG.intro) + '</p>',
       '<div class="section-cards">',
       '<div class="card">',
       '<ul class="card-list nav">',
       items.map(renderItem).join(''),
       '</ul>',
-      '<div class="card-footer card-text"><a class="theme-colour" href="' + escapeHtml(city.morePath) + '">' + escapeHtml(CONFIG.moreLabel) + '</a></div>',
       '</div>',
       '</div>'
     ].join('');
@@ -385,6 +410,7 @@
     var target = findInjectTarget();
     if (!target) return;
 
+    ensureStyles();
     var root = buildRoot(city, items);
 
     if (target.after.nextSibling) {
