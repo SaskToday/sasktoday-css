@@ -1293,9 +1293,8 @@ hr#details-shares {
 
 /* End Ad Unit Centering */
 
-/* DFP widgets and injected ad widgets share the same padding.
-   The gradient is only for widget/widget-dfp/gam, which is the skyscraper-style slot. */
-.widget.widget-dfp.gam,
+/* Padding stays on injected ads only. Non-injected DFP units are hidden
+   on some breakpoints, and leftover padding on the widget still takes space. */
 .gam.widget-inject {
     padding: 15px 0 25px !important
 }
@@ -1316,12 +1315,18 @@ hr#details-shares {
     color: #717171;
 }
 
-/* DFP widgets are not .widget-injected, so the CMS rule never inserts this label. */
+/* DFP widgets are not .widget-injected, so the CMS rule never inserts this label.
+   The fixed band keeps the word centered between the widget top and the ad. */
 .widget.widget-dfp.gam > .slot > span:before {
     content: 'Advertisement';
-    padding-bottom: 2px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 18px;
+    margin: 0;
+    padding: 0;
     border-bottom: none;
-    margin-left: 0;
+    line-height: 1;
 }
 
 /* In-article ad label: drop the Harvard underline only (keep "Advertisement" text).
