@@ -1,0 +1,17 @@
+/sponsored-rss.js
+  Cache-Control: public, max-age=300, stale-while-revalidate=86400
+
+/image-quality.js
+  Cache-Control: public, max-age=300, stale-while-revalidate=86400
+
+/leaderboard.js
+  Cache-Control: public, max-age=300, stale-while-revalidate=86400
+
+/radio.js
+  Cache-Control: public, max-age=300, stale-while-revalidate=86400
+
+/poll.js
+  Cache-Control: public, max-age=300, stale-while-revalidate=86400
+
+/gam-badge.js
+  Cache-Control: public, max-age=300, stale-while-revalidate=86400
