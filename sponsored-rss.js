@@ -328,10 +328,6 @@
     var style = document.createElement('style');
     style.id = 'st-sponsored-rss-styles';
     style.textContent = [
-      '#st-sponsored-rss {',
-      '  margin-top: 30px;',
-      '  margin-bottom: 30px;',
-      '}',
       '#st-sponsored-rss > h2.title {',
       '  font-size: 0.9em;',
       '  font-weight: 700;',
