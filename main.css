@@ -858,8 +858,9 @@ a.card.card-block:last-child {
         margin-bottom: 15px;
     }
 
-    /* Last card's margin collapses out of .cards and stacks on the next widget. */
-    .widget-cards .cards > .card:last-child {
+    /* The last card's margin collapses out of its wrapper and stacks on the next widget.
+       A lone story is not inside .cards; it is the only child of a plain div. */
+    .widget-cards .card:last-child {
         margin-bottom: 0;
     }
 }
