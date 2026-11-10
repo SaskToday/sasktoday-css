@@ -1222,14 +1222,6 @@ hr#details-shares {
     background-color: #fff
 }
 
-.gam.widget-inject {
-    padding: 15px 0 25px !important
-}
-
-.widget.widget-dfp.gam {
-    background: linear-gradient(135deg, #fafafa 0%, #eeeeee 100%)
-}
-
 .slot-footer.slot-show {
     padding: 10px 0
 }
@@ -1300,6 +1292,17 @@ hr#details-shares {
 }
 
 /* End Ad Unit Centering */
+
+/* DFP widgets and injected ad widgets share the same padding.
+   The gradient is only for widget/widget-dfp/gam, which is the skyscraper-style slot. */
+.widget.widget-dfp.gam,
+.gam.widget-inject {
+    padding: 15px 0 25px !important
+}
+
+.widget.widget-dfp.gam {
+    background: linear-gradient(135deg, #fafafa 0%, #eeeeee 100%)
+}
 
 /* Advertising label above video companion ads, comment slots, in-article ads, and DFP slots. */
 .widget-videoad .companionad:before,
