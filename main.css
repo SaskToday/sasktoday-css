@@ -1222,14 +1222,6 @@ hr#details-shares {
     background-color: #fff
 }
 
-.gam.widget-inject {
-    padding: 15px 0 25px !important
-}
-
-.widget.widget-dfp.gam {
-    background: linear-gradient(135deg, #fafafa 0%, #eeeeee 100%)
-}
-
 .slot-footer.slot-show {
     padding: 10px 0
 }
@@ -1301,15 +1293,35 @@ hr#details-shares {
 
 /* End Ad Unit Centering */
 
-/* Advertising label above video companion ads, comment slots, and in-article ads. */
+/* DFP widgets and injected ad widgets share the same padding.
+   The gradient is only for widget/widget-dfp/gam, which is the skyscraper-style slot. */
+.widget.widget-dfp.gam,
+.gam.widget-inject {
+    padding: 15px 0 25px !important
+}
+
+.widget.widget-dfp.gam {
+    background: linear-gradient(135deg, #fafafa 0%, #eeeeee 100%)
+}
+
+/* Advertising label above video companion ads, comment slots, in-article ads, and DFP slots. */
 .widget-videoad .companionad:before,
 .slot-comments span:before,
-.widget-injected .slot span:before {
+.widget-injected .slot span:before,
+.widget.widget-dfp.gam > .slot > span:before {
     display: block;
     text-align: center;
     text-transform: uppercase;
     font-size: 60%;
     color: #717171;
+}
+
+/* DFP widgets are not .widget-injected, so the CMS rule never inserts this label. */
+.widget.widget-dfp.gam > .slot > span:before {
+    content: 'Advertisement';
+    padding-bottom: 2px;
+    border-bottom: none;
+    margin-left: 0;
 }
 
 /* In-article ad label: drop the Harvard underline only (keep "Advertisement" text).
