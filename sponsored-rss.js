@@ -13,6 +13,10 @@
  *   /yorkton-today   → Yorkton Zapier feed
  *   /saskatoon-today → Saskatoon Zapier feed
  *
+ * The city match is a path substring, so a story under /regina-today also
+ * matches. Skip any path that includes sponsored-content so the widget is
+ * not injected on the sponsored article itself.
+ *
  * Injects into .widget-area-col after the first child <div>.
  *
  * Markup matches a standard sidebar thumbs widget so it inherits the site
@@ -58,6 +62,7 @@
 
   function getCity() {
     var path = window.location.pathname;
+    if (path.indexOf('sponsored-content') !== -1) return null;
     var i;
     for (i = 0; i < CONFIG.cities.length; i++) {
       if (path.indexOf(CONFIG.cities[i].pathIncludes) !== -1) {
@@ -326,7 +331,7 @@
       '  margin: 0 0 4px;',
       '  padding: 2px 8px;',
       '  border-radius: 999px;',
-      '  background: #016a1a;',
+      '  background: #1665a8;',
       '  color: #fff;',
       '  font-size: 11px;',
       '  font-weight: 700;',
@@ -335,7 +340,7 @@
       '}',
       '#st-sponsored-rss a:hover .st-sponsored-pill,',
       '#st-sponsored-rss a:focus .st-sponsored-pill {',
-      '  background: #016a1a;',
+      '  background: #1665a8;',
       '  color: #fff;',
       '  text-decoration: none;',
       '}'
