@@ -33,7 +33,8 @@
     cacheTtlMs: 5 * 60 * 1000,
     injectSelector: '.widget-area-col',
     rootId: 'st-sponsored-rss',
-    label: 'Sponsored Content',
+    label: 'Beyond the Headlines',
+    intro: 'Sponsored articles from our partners',
     moreLabel: 'More Sponsored Content >',
     cacheKeyPrefix: 'st-sponsored-rss-zapier:v5:',
 
@@ -349,6 +350,7 @@
     root.setAttribute('data-st-city', city.pathIncludes);
     root.innerHTML = [
       '<h2 class="title mt-0 mb-1">' + escapeHtml(CONFIG.label) + '</h2>',
+      '<p class="mt-0 mb-1 card-text">' + escapeHtml(CONFIG.intro) + '</p>',
       '<div class="section-cards">',
       '<div class="card">',
       '<ul class="card-list nav">',
