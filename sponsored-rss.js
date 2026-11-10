@@ -18,7 +18,8 @@
  * not injected on the sponsored article itself.
  *
  * Injects into the first <div class="sponsored-inject">. Pages without that
- * placeholder are left alone.
+ * placeholder are left alone. A wysiwyg may need &nbsp; inside the div so
+ * the CMS keeps it; those spaces are collapsed in CSS.
  *
  * The inner markup matches a sidebar thumbs widget so the card styles apply.
  * The root is not a .widget and its links have no data-id. Village's editor
@@ -328,6 +329,17 @@
     var style = document.createElement('style');
     style.id = 'st-sponsored-rss-styles';
     style.textContent = [
+      '.sponsored-inject {',
+      '  font-size: 0;',
+      '  line-height: 0;',
+      '}',
+      '#st-sponsored-rss {',
+      '  font-size: 14px;',
+      '  line-height: normal;',
+      '}',
+      '#st-sponsored-rss .section-cards > .card {',
+      '  margin-bottom: 0;',
+      '}',
       '#st-sponsored-rss > h2.title {',
       '  font-size: 0.9em;',
       '  font-weight: 700;',
