@@ -19,10 +19,11 @@
  *
  * Injects into .widget-area-col after the first child <div>.
  *
- * Markup matches a standard sidebar thumbs widget so it inherits the site
- * styles. Each story has a Sponsored pill above its title. The root uses the
- * widget class for that styling, but not data-widget or the Move/Edit/Delete
- * buttons, so the CMS does not treat it as an editable sidebar widget.
+ * The inner markup matches a sidebar thumbs widget so the card styles apply.
+ * The root is not a .widget and its links have no data-id. Village's editor
+ * treats .widget, and story links with data-id, as editable, which was
+ * interfering with editing the real sidebar widgets. Title and spacing are
+ * applied here instead.
  *
  * If the browser blocks the Zapier feed (CORS), set CONFIG.corsProxyPrefix to:
  *   'https://api.allorigins.win/raw?url='
@@ -326,6 +327,23 @@
     var style = document.createElement('style');
     style.id = 'st-sponsored-rss-styles';
     style.textContent = [
+      '#st-sponsored-rss {',
+      '  margin-top: 30px;',
+      '  margin-bottom: 30px;',
+      '}',
+      '#st-sponsored-rss > h2.title {',
+      '  font-size: 0.9em;',
+      '  font-weight: 700;',
+      '  text-transform: uppercase;',
+      '  border-bottom: none;',
+      '  border-top: 1px solid #000;',
+      '  margin-top: 0 !important;',
+      '  margin-bottom: 5px !important;',
+      '  padding-top: 5px;',
+      '  padding-bottom: 5px;',
+      '  letter-spacing: 0.05em;',
+      '  color: #000;',
+      '}',
       '#st-sponsored-rss .st-sponsored-pill {',
       '  display: inline-block;',
       '  margin: 0 0 4px;',
@@ -349,16 +367,14 @@
   }
 
   function renderItem(item) {
-    var id = storyIdFromUrl(item.link);
     var image = thumbUrl(item.image);
-    var idAttr = id ? ' data-r="0" data-id="' + escapeHtml(id) + '"' : '';
     var thumb = image
       ? '<div class="card-snippet-left"><img alt="' + escapeHtml(item.title) + '" class="lazyimg lazy-loaded" data-src="' + escapeHtml(image) + '" height="80" src="' + escapeHtml(image) + '" style="aspect-ratio:120/80" width="120"></div>'
       : '';
 
     return [
       '<li>',
-      '<a href="' + escapeHtml(item.link) + '" class="' + (image ? 'card-snippet' : 'ib mt-1 mb-1') + '"' + idAttr + '>',
+      '<a href="' + escapeHtml(item.link) + '" class="' + (image ? 'card-snippet' : 'ib mt-1 mb-1') + '">',
       thumb,
       image ? '<div class="card-snippet-body">' : '',
       '<span class="st-sponsored-pill">' + escapeHtml(CONFIG.pill) + '</span>',
@@ -375,9 +391,7 @@
   function buildRoot(city, items) {
     var root = document.createElement('div');
     root.id = CONFIG.rootId;
-    // widget is for the shared title, spacing, and thumbnail styles.
-    // data-widget is omitted so Village does not add Move/Edit/Delete.
-    root.className = 'section widget widget-canfeature widget-thumbs theme-blue st-sponsored-rss';
+    root.className = 'st-sponsored-rss';
     root.setAttribute('data-st-sponsored-rss', '1');
     root.setAttribute('data-st-city', city.pathIncludes);
     root.innerHTML = [
