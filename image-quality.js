@@ -2,7 +2,7 @@
   var DONE = "data-hires";
   var MAX = 1200;
   var STEP = 50;
-  var SEL = "img.lazyimg, img.avatar-img, .tablist-cards img.card-img";
+  var SEL = "img.lazyimg, img.avatar-img, .tablist-cards img.card-img, .trending-now-section img.card-img";
   var io = null;
 
   function parseDim(url, key) {
@@ -57,8 +57,20 @@
   }
 
   function scan(root) {
-    var list = (root || document).querySelectorAll(SEL);
-    for (var i = 0; i < list.length; i++) track(list[i]);
+    root = root || document;
+    if (root === document || root.nodeType === 9) {
+      var all = document.querySelectorAll(SEL);
+      for (var i = 0; i < all.length; i++) track(all[i]);
+      return;
+    }
+    // Ancestor-qualified selectors (e.g. .trending-now-section img.card-img)
+    // miss when querySelectorAll runs on a subtree. Use matches() instead.
+    if (root.matches && root.matches(SEL)) track(root);
+    if (!root.querySelectorAll) return;
+    var imgs = root.querySelectorAll("img");
+    for (var j = 0; j < imgs.length; j++) {
+      if (imgs[j].matches && imgs[j].matches(SEL)) track(imgs[j]);
+    }
   }
 
   function watch() {
