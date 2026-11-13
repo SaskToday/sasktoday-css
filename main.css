@@ -1361,14 +1361,27 @@ hr#details-shares {
  * Card/title rules below apply to both. Width overrides are injected-only.
  */
 
-/* Injected only: drop Village's 300px inject-slot cap so the carousel
-   can use the article column width. Leave other .widget-injected alone. */
+/* Injected only: drop Village's 300px inject-slot cap, and frame the
+   in-article block with dotted top/bottom rules. Leave other injects alone. */
 .tariff-widget.widget-injected,
 .top-stories-widget.widget-injected,
 .tariff-widget.widget-inject,
 .top-stories-widget.widget-inject {
     max-width: none;
     width: 100%;
+    border-top: 1px dotted #000;
+    border-bottom: 1px dotted #000;
+}
+
+/* Injected titles sit in denser article type, so they run smaller.
+   The solid landing-page top rule is cleared; the widget frame supplies it. */
+.tariff-widget.widget-injected > .title,
+.top-stories-widget.widget-injected > .title,
+.tariff-widget.widget-inject > .title,
+.top-stories-widget.widget-inject > .title {
+    font-size: 0.7em;
+    border-top: none;
+    border-bottom: none;
 }
 
 .tariff-widget .card,
