@@ -1480,6 +1480,13 @@ hr#details-shares {
     margin-top: 15px !important;
     margin-bottom: 15px !important;
 }
+
+.tariff-widget.widget-injected .cards,
+.top-stories-widget.widget-injected .cards,
+.tariff-widget.widget-inject .cards,
+.top-stories-widget.widget-inject .cards {
+    margin-top: 0 !important;
+}
  
 .tariff-widget .card:not(:first-child)::before,
 .top-stories-widget .card:not(:first-child)::before {
