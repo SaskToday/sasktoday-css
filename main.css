@@ -1345,13 +1345,43 @@ hr#details-shares {
     border-bottom: none;
 }
 
-/* Tariff and Top Stories widgets */
+/* Tariff and Top Stories widgets
+ *
+ * Two placements share .tariff-widget / .top-stories-widget:
+ *
+ * 1) Injected in-article (narrow inject slot):
+ *    ... widget widget-inject widget-inject-centre ... top-stories-widget widget-injected
+ *    Village applies: .widget-injected { max-width: 300px }
+ *
+ * 2) Not injected (homepage / widget column):
+ *    ... widget ... top-stories-widget   (no widget-inject / widget-injected)
+ *    Often also has .has-carousel-nav when arrow controls are present.
+ *    Not subject to the Village 300px inject cap.
+ *
+ * Card/title rules below apply to both. Width overrides are injected-only.
+ */
 
-/* Village theme caps all .widget-injected blocks at 300px (for narrow
-   inject slots). These two carousels need full content width instead. */
+/* Injected only: drop Village's 300px inject-slot cap, and frame the
+   in-article block with dotted top/bottom rules. Leave other injects alone. */
 .tariff-widget.widget-injected,
-.top-stories-widget.widget-injected {
+.top-stories-widget.widget-injected,
+.tariff-widget.widget-inject,
+.top-stories-widget.widget-inject {
     max-width: none;
+    width: 100%;
+    border-top: 1px dotted #000;
+    border-bottom: 1px dotted #000;
+}
+
+/* Injected titles sit in denser article type, so they run smaller.
+   The solid landing-page top rule is cleared; the widget frame supplies it. */
+.tariff-widget.widget-injected > .title,
+.top-stories-widget.widget-injected > .title,
+.tariff-widget.widget-inject > .title,
+.top-stories-widget.widget-inject > .title {
+    font-size: 0.7em;
+    border-top: none;
+    border-bottom: none;
 }
 
 .tariff-widget .card,
