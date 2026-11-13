@@ -1381,7 +1381,7 @@ hr#details-shares {
 .top-stories-widget.widget-injected > .title,
 .tariff-widget.widget-inject > .title,
 .top-stories-widget.widget-inject > .title {
-    font-size: 0.7em;
+    font-size: 0.6em;
     border-top: none;
     border-bottom: none;
 }
@@ -1483,13 +1483,6 @@ hr#details-shares {
     margin-bottom: 15px !important;
 }
 
-.tariff-widget.widget-injected .cards,
-.top-stories-widget.widget-injected .cards,
-.tariff-widget.widget-inject .cards,
-.top-stories-widget.widget-inject .cards {
-    margin-top: 0 !important;
-}
- 
 .tariff-widget .card:not(:first-child)::before,
 .top-stories-widget .card:not(:first-child)::before {
     content: "";
