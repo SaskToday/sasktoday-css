@@ -1347,6 +1347,13 @@ hr#details-shares {
 
 /* Tariff and Top Stories widgets */
 
+/* Village theme caps all .widget-injected blocks at 300px (for narrow
+   inject slots). These two carousels need full content width instead. */
+.tariff-widget.widget-injected,
+.top-stories-widget.widget-injected {
+    max-width: none;
+}
+
 .tariff-widget .card,
 .top-stories-widget .card {
     position: relative;
