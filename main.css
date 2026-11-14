@@ -1313,6 +1313,14 @@ hr#details-shares {
     background: linear-gradient(135deg, #fafafa 0%, #eeeeee 100%)
 }
 
+/* Community leader badge: drop inject top/bottom pad and DFP grey wash.
+   Other .gam.widget-inject / .widget-dfp.gam units keep their spacing and background. */
+.widget.widget-dfp.gam.widget-inject.sc-community-badge-ad-unit {
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
+    background: none;
+}
+
 /* Advertising label above video companion ads, comment slots, in-article ads, and DFP slots. */
 .widget-videoad .companionad:before,
 .slot-comments span:before,
