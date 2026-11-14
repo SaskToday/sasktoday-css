@@ -1313,12 +1313,16 @@ hr#details-shares {
     background: linear-gradient(135deg, #fafafa 0%, #eeeeee 100%)
 }
 
-/* Community leader badge: drop inject top/bottom pad and DFP grey wash.
+/* Community leader badge: keep inject top pad, drop bottom pad and DFP grey wash.
    Other .gam.widget-inject / .widget-dfp.gam units keep their spacing and background. */
 .widget.widget-dfp.gam.widget-inject.sc-community-badge-ad-unit {
-    padding-top: 0 !important;
     padding-bottom: 0 !important;
     background: none;
+}
+
+/* Community leader badge: clear the 15px top margin on the ad iframe. */
+.gam.sc-community-badge-ad-unit iframe {
+    margin-top: 0 !important;
 }
 
 /* Advertising label above video companion ads, comment slots, in-article ads, and DFP slots. */
