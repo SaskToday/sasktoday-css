@@ -1646,12 +1646,12 @@ hr#details-shares {
     color: #333 !important;
 }
 
-/* When Top Stories renders with no children, drop the Village
-   .widget+.widget 30px gap so the next sibling (e.g. Highlights)
-   sits flush. :empty covers adjacent empty markup; :not(:has(*))
-   covers empty shells that only contain whitespace/newlines. */
-.top-stories-widget:empty + .widget,
-.top-stories-widget:not(:has(*)) + .widget {
+/* When any preceding .widget renders with no children, drop the
+   Village .widget+.widget 30px gap so the next sibling sits flush.
+   :empty covers adjacent empty markup; :not(:has(*)) covers empty
+   shells that only contain whitespace/newlines. */
+.widget:empty + .widget,
+.widget:not(:has(*)) + .widget {
     margin-top: 0;
 }
 
