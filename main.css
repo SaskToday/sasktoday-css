@@ -917,6 +917,10 @@ a.card.card-block:last-child {
     }
 }
 
+#details-widgets > hr:first-child {
+    display: none;
+}
+
 #details-widgets hr,
 form hr,
 hr#details-shares {
