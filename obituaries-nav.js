@@ -18,20 +18,20 @@
   var INJECT_SELECTOR = '.obituaries-navigation';
 
   var LINKS = [
-    { href: '/obituaries/assiniboia-obituaries', label: 'Assiniboia Obituaries' },
-    { href: '/obituaries/battlefords-obituaries', label: 'Battlefords Obituaries' },
-    { href: '/obituaries/canora-obituaries', label: 'Canora Obituaries' },
-    { href: '/obituaries/carlyle-obituaries', label: 'Carlyle Obituaries' },
-    { href: '/obituaries/estevan-obituaries', label: 'Estevan Obituaries' },
-    { href: '/obituaries/humboldt-obituaries', label: 'Humboldt Obituaries' },
-    { href: '/obituaries/kamsack-obituaries', label: 'Kamsack Obituaries' },
-    { href: '/obituaries/moose-jaw-obituaries', label: 'Moose Jaw Obituaries' },
-    { href: '/obituaries/preeceville-obituaries', label: 'Preeceville Obituaries' },
-    { href: '/obituaries/regina-obituaries', label: 'Regina Obituaries' },
-    { href: '/obituaries/saskatoon-obituaries', label: 'Saskatoon Obituaries' },
-    { href: '/obituaries/unity-wilkie-obituaries', label: 'Unity-Wilkie Obituaries' },
-    { href: '/obituaries/weyburn-obituaries', label: 'Weyburn Obituaries' },
-    { href: '/obituaries/yorkton-obituaries', label: 'Yorkton Obituaries' }
+    { href: '/obituaries/assiniboia-obituaries', label: 'Assiniboia' },
+    { href: '/obituaries/battlefords-obituaries', label: 'Battlefords' },
+    { href: '/obituaries/canora-obituaries', label: 'Canora' },
+    { href: '/obituaries/carlyle-obituaries', label: 'Carlyle' },
+    { href: '/obituaries/estevan-obituaries', label: 'Estevan' },
+    { href: '/obituaries/humboldt-obituaries', label: 'Humboldt' },
+    { href: '/obituaries/kamsack-obituaries', label: 'Kamsack' },
+    { href: '/obituaries/moose-jaw-obituaries', label: 'Moose Jaw' },
+    { href: '/obituaries/preeceville-obituaries', label: 'Preeceville' },
+    { href: '/obituaries/regina-obituaries', label: 'Regina' },
+    { href: '/obituaries/saskatoon-obituaries', label: 'Saskatoon' },
+    { href: '/obituaries/unity-wilkie-obituaries', label: 'Unity-Wilkie' },
+    { href: '/obituaries/weyburn-obituaries', label: 'Weyburn' },
+    { href: '/obituaries/yorkton-obituaries', label: 'Yorkton' }
   ];
 
   var LEFT_SVG =
