@@ -79,17 +79,9 @@
       '.obituaries-navigation[' + ROOT_ATTR + '] .container-secondary-nav {',
       '  max-width: 800px;',
       '  margin: 0 auto;',
+      '  padding: 0 0 10px 0;',
       '  font-family: "Source Sans 3", sans-serif;',
-      '  padding-bottom: 10px;',
       '  position: relative;',
-      '}',
-      '.obituaries-navigation[' + ROOT_ATTR + '] .small-nav-header {',
-      '  padding-bottom: 5px;',
-      '  margin-bottom: 10px;',
-      '  font-size: 0;',
-      '  font-family: "Source Sans 3", sans-serif;',
-      '  font-weight: 700;',
-      '  border-bottom: 4px solid #016a1b;',
       '}',
       '.obituaries-navigation[' + ROOT_ATTR + '] .nav-community {',
       '  display: flex;',
@@ -98,7 +90,7 @@
       '  row-gap: 2px;',
       '  margin: 0;',
       '  font-size: 12px;',
-      '  padding: 0 28px 8px;',
+      '  padding: 0 28px 8px 0;',
       '  border-radius: 4px;',
       '  position: relative;',
       '  background: #fff;',
@@ -219,7 +211,6 @@
     return (
       '<div class="st-obituaries-nav">' +
       '<div class="container-secondary-nav">' +
-      '<div class="small-nav-header" aria-hidden="true"></div>' +
       '<nav class="nav-community" aria-label="Obituaries communities">' +
       linksHtml +
       '</nav>' +
