@@ -719,9 +719,11 @@ h1.body-title {
     color: #000
 }
 
-/* Category/section page titles: bump past Village head 0.9em rule. */
-h1.body-title {
-    font-size: 1.2em !important;
+/* Category/section page titles + opt-in larger widget titles.
+   Add class st-title-lg on a widget in Village admin to enlarge its h2.title to 1.4em. */
+h1.body-title,
+.widget.st-title-lg > h2.title {
+    font-size: 1.4em !important;
 }
 
 h3 {
