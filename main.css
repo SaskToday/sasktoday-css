@@ -720,10 +720,10 @@ h1.body-title {
 }
 
 /* Category/section page titles + opt-in larger widget titles.
-   Add class st-title-lg on a widget in Village admin to enlarge its h2.title to 1.4em. */
+   Add class st-title-lg on a widget in Village admin to enlarge its h2.title to 1.8em. */
 h1.body-title,
 .widget.st-title-lg > h2.title {
-    font-size: 1.4em !important;
+    font-size: 1.8em !important;
 }
 
 h3 {
