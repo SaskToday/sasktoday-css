@@ -2,7 +2,10 @@
   var DONE = "data-hires";
   var MAX = 1200;
   var STEP = 50;
-  var SEL = "img.lazyimg, img.avatar-img, .tablist-cards img.card-img, .trending-now-section img.card-img";
+  // .widget img.card-img covers trending, mostread, canfeature, etc.
+  // Small thumbs (e.g. Top Stories ~70px) stay put: hiresUrl only upgrades
+  // when display×2 stepped exceeds the current CDN w=.
+  var SEL = "img.lazyimg, img.avatar-img, .tablist-cards img.card-img, .widget img.card-img";
   var io = null;
 
   function parseDim(url, key) {
@@ -63,8 +66,8 @@
       for (var i = 0; i < all.length; i++) track(all[i]);
       return;
     }
-    // Ancestor-qualified selectors (e.g. .trending-now-section img.card-img)
-    // miss when querySelectorAll runs on a subtree. Use matches() instead.
+    // Ancestor-qualified selectors (e.g. .widget img.card-img) miss when
+    // querySelectorAll runs on a subtree. Use matches() instead.
     if (root.matches && root.matches(SEL)) track(root);
     if (!root.querySelectorAll) return;
     var imgs = root.querySelectorAll("img");
