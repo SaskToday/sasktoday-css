@@ -719,6 +719,11 @@ h1.body-title {
     color: #000
 }
 
+/* Village pins .carousel-nav-cards at top:0; our h2.title has border-top + padding-top:5px. */
+.widget.has-carousel-nav > .carousel-nav.carousel-nav-cards {
+    top: 6px;
+}
+
 /* Category/section page titles + opt-in larger widget titles.
    Add class st-title-lg on a widget in Village admin to enlarge its h2.title to 1.8em. */
 h1.body-title,
